@@ -1,0 +1,66 @@
+#!/bin/bash
+
+case $1 in
+"master")
+
+   	echo "setup"
+	docker run --name adhoc-cloud-master -d master-node:latest
+	master_ip=`docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master`
+	echo "master IP is [" $master_ip "]"
+        docker run -it -e "WHOAMI=$master_ip" --link adhoc-cloud-master --rm master-node:latest sh -c 'exec /usr/src/master.sh register' 
+        ;;
+
+"nodes") 
+	echo "vols $2 fills"
+	for ((i=1; i<=$2; i++))
+	do
+    		echo $i
+		nodeName="adhoc-cloud-node$i"
+		echo "nodeName $nodeName"
+                #docker run --name node_fill  -d -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  master-node:latest
+                #docker run --name $nodeName -d -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  master-node:latest
+                echo `docker run --name $nodeName -d -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  master-node:latest`
+                #docker run --name adhoc-cloud-node$i -e "CASSANDRA_SEEDS=$master_ip" -d master-node:latest
+                nodeIP=`docker inspect --format='{{ .NetworkSettings.IPAddress }}' $nodeName`
+		echo "nodeIP $nodeIP"
+
+	done
+	echo "bye"
+	;;
+*)
+	echo "k ase?"
+#if [ $1 == "setup" ]
+#then
+#   	echo "setup"
+#	docker run --name adhoc-cloud-master -d master-node:latest
+#	master_ip=`docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master`
+#	echo "master IP is [" $master_ip "]"
+#        docker run -it -e "WHOAMI=$master_ip" --link adhoc-cloud-master --rm master-node:latest sh -c 'exec /usr/src/master.sh register' 
+#	
+#	echo "vols $2 fills"
+#	for ((i=1; i<=$2; i++))
+#	do
+#    		echo $i
+#		nodeName="adhoc-cloud-node$i"
+#		echo "nodeName $nodeName"
+#               #docker run --name node_fill  -d -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  master-node:latest
+#                #docker run --name $nodeName -d -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  master-node:latest
+#                echo `docker run --name $nodeName -d -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  master-node:latest`
+#                #docker run --name adhoc-cloud-node$i -e "CASSANDRA_SEEDS=$master_ip" -d master-node:latest
+#                echo `docker inspect --format='{{ .NetworkSettings.IPAddress }}' $nodeName`
+#
+#	done
+#	
+#	echo "bye"
+#else
+#	if  [ $1 == "clean" ]
+#	then
+#		echo "clean"
+#		docker stop adhoc-cloud-master
+#                docker rm adhoc-cloud-master
+#	else
+#   		echo "k ase?"
+#	fi
+#fi
+;;
+esac
