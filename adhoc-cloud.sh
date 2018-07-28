@@ -4,25 +4,38 @@ case $1 in
 "master")
 
    	echo "setup"
-	docker run --rm --name adhoc-cloud-master -d adhocc:latest
+	docker run --rm --name adhoc-cloud-master -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -d adhocc:latest
+	#docker run --rm --name adhoc-cloud-master -d adhocc:latest
 	master_ip=`docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master`
 	echo "master IP is [" $master_ip "]"
-        docker exec -e "WHOAMI=$master_ip" -i -t adhoc-cloud-master sh -c 'exec /usr/src/master.sh register' 
+        docker exec -e "WHOAMI=$master_ip" -i -t adhoc-cloud-master sh -c 'exec /usr/src/master.sh' 
         ;;
 
 "nodes") 
-	echo "vols $2 fills"
+	data_ini=`date +%s`
+	fileName="data/data-addNodes-$data_ini-$2.dat"
+	echo -e "num \t time\n">>$fileName
+	echo "$data_ini vols $2 fills"
+
 	for ((i=1; i<=$2; i++))
 	do
     		echo $i
 		nodeName="adhoc-cloud-node$i"
 		echo "nodeName $nodeName"
-                docker run --name $nodeName -d -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
+		docker run --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
                 nodeIP=`docker inspect --format='{{ .NetworkSettings.IPAddress }}' $nodeName`
-		echo "nodeIP $nodeIP"
                 docker exec -e "WHOAMI=$nodeIP" -i -t $nodeName sh -c 'exec /usr/src/node.sh' 
+	        
+                #num=`docker exec -i -t $nodeName  sh -c 'nodetool status'| grep ^UN | wc -l`
+		
+		#echo "Num $num t $ELAPSED_TIME"
                 #docker run -it -e "WHOAMI=$nodeIP" --link "$nodeName" --rm master-node:latest sh -c 'exec /usr/src/node.sh' 
 	done
+
+	data_end=`date +%s`
+	ELAPSED_TIME=`expr $data_end - $data_ini`
+	echo -e "$2 \t $ELAPSED_TIME\n">>$fileName
+		
 	echo "bye"
 	;;
 *)
