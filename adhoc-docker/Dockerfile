@@ -4,3 +4,5 @@ COPY master.sh /usr/src/master.sh
 COPY deregister.sh /usr/src/deregister.sh
 COPY node.sh /usr/src/node.sh
 COPY currentnodes.sh /usr/src/currentnodes.sh
+COPY remove_node.sh /usr/src/remove_node.sh
+COPY check_cluster.sh /usr/src/check_cluster.sh

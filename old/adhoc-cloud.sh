@@ -20,17 +20,7 @@ case $1 in
 	for ((i=1; i<=$2; i++))
 	do
     		echo $i
-		# nodeName="adhoc-cloud-node$i"
-		# Determine node name
-		alreadyexist="x"
-		j=1
-		while [ "$alreadyexist" != "" ];
-		do
-			nodeName="adhoc-cloud-node$j"
-			alreadyexist=`docker ps | grep $nodeName`
-			j=`expr $j + 1`
-		done
-
+		nodeName="adhoc-cloud-node$i"
 		echo "nodeName $nodeName"
 		docker run --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
                 nodeIP=`docker inspect --format='{{ .NetworkSettings.IPAddress }}' $nodeName`

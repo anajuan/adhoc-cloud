@@ -1,5 +1,6 @@
 #!/bin/bash
 
+DATAFILE="./data/data-leave-cluster.dat"
 NODENAME="adhoc-cloud-node"
 #NODENAME="cassandra"
 
@@ -7,6 +8,11 @@ NODENAME="adhoc-cloud-node"
 function log {
 	DATE='date +%Y/%m/%d:%H:%M:%S'
 	echo `$DATE`" $1"
+}
+
+function remove_node {
+	nodeIP=$1
+	sudo docker exec -it -e "NODETOREMOVE=$nodeIP" adhoc-cloud-master /usr/src/remove_node.sh
 }
 
 function kill {
@@ -23,6 +29,8 @@ function kill {
 
 	log "Stopping docker"
 	sudo docker stop $node
+
+	remove_node $nodeIP
 }
 
 function syncnode {
@@ -55,14 +63,37 @@ function sync {
 	log "Sync time (secs): $total"
 }
 
+function check_cluster {
+	log "Checking cluster state"
+	sudo docker exec -it adhoc-cloud-master /usr/src/check_cluster.sh
+}
+
+# main
+
 if [ "$#" -ne 1 ]; then
   echo "Usage: $0 <nodes to kill>" >&2
   exit 1
 fi
 
+numnodes=`sudo docker ps --format "{{.ID}}: {{.Names}}" | grep $NODENAME | wc -l`
+log "Cluster of $numnodes nodes"
+tstart=`date +'%s'`
+
+# Kill nodes
 for ((i=0;i<$1;i++))
 do
 	log "Killing node $i ..."
 	kill
 done
-sync
+
+# Wait for sync
+#++sync
+
+check_cluster
+
+tend=`date +'%s'`
+ttotal=`expr $tend - $tstart`
+
+log "Total time of $ttotal seconds"
+
+echo "$numnodes, $1, $ttotal" >> $DATAFILE
