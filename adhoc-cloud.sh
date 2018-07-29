@@ -14,7 +14,7 @@ case $1 in
 "nodes") 
 	data_ini=`date +%s`
 	fileName="data/data-addNodes-$data_ini-$2.dat"
-	echo -e "num \t time\n">>$fileName
+	echo -e "num \t time">>$fileName
 	echo "$data_ini vols $2 fills"
 
 	for ((i=1; i<=$2; i++))
@@ -27,6 +27,10 @@ case $1 in
                 docker exec -e "WHOAMI=$nodeIP" -i -t $nodeName sh -c 'exec /usr/src/node.sh' 
 	        
                 #num=`docker exec -i -t $nodeName  sh -c 'nodetool status'| grep ^UN | wc -l`
+
+                data_end=`date +%s`
+                ELAPSED_TIME=`expr $data_end - $data_ini`
+                echo -e "$i \t $ELAPSED_TIME">>$fileName
 		
 		#echo "Num $num t $ELAPSED_TIME"
                 #docker run -it -e "WHOAMI=$nodeIP" --link "$nodeName" --rm master-node:latest sh -c 'exec /usr/src/node.sh' 
@@ -34,7 +38,7 @@ case $1 in
 
 	data_end=`date +%s`
 	ELAPSED_TIME=`expr $data_end - $data_ini`
-	echo -e "$2 \t $ELAPSED_TIME\n">>$fileName
+	echo -e "TOTAL$2 \t $ELAPSED_TIME">>$fileName
 		
 	echo "bye"
 	;;
