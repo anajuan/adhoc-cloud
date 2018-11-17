@@ -30,12 +30,12 @@ log "Creating cluster of $SIZE nodes"
 sudo ./adhoc-cloud.sh master
 sudo ./adhoc-cloud.sh nodes $SIZE
 
-leaving 2
-leaving 4
-leaving 6
-leaving 8
+#leaving 2
+#leaving 4
+#leaving 6
+#leaving 8
 
-log "Cleanup"
-./cleanup $SIZE
-sudo docker kill adhoc-cloud-master
+#log "Cleanup"
+#./cleanup $SIZE
+#sudo docker kill adhoc-cloud-master
 

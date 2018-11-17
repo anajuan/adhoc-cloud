@@ -34,7 +34,14 @@ case $1 in
 		echo "nodeName $nodeName"
 		docker run --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
                 nodeIP=`docker inspect --format='{{ .NetworkSettings.IPAddress }}' $nodeName`
-                docker exec -e "WHOAMI=$nodeIP" -i -t $nodeName sh -c 'exec /usr/src/node.sh' 
+                
+		# changes to only make inserts of new nodes to the master
+		#before insert done in each node
+		docker exec -e "WHOAMI=$nodeIP" -i -t $nodeName sh -c 'exec /usr/src/node.sh' 
+		# now insert is only for master-- considers it will be active at some point. 
+		#echo ">>>>>>>>>>>>>>>>>>>>>>inserting  $nodeName [$i] nodeIP[$nodeIP]" 
+                #docker exec -e "WHOAMI=$nodeIP" -i -t adhoc-cloud-master sh -c 'exec /usr/src/node.sh' 
+		###########################################################
 	        
                 #num=`docker exec -i -t $nodeName  sh -c 'nodetool status'| grep ^UN | wc -l`
 
