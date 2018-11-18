@@ -14,13 +14,12 @@ case $1 in
 "nodes") 
 	data_ini=`date +%s`
 	fileName="data/data-addNodes-$data_ini-$2.dat"
-	echo -e "num \t Acumtime \t TimeIns">>$fileName
+	echo -e "num \t time">>$fileName
 	echo "$data_ini vols $2 fills"
 
 	for ((i=1; i<=$2; i++))
 	do
     		echo $i
-	        data_iniIns=`date +%s`
 		# nodeName="adhoc-cloud-node$i"
 		# Determine node name
 		alreadyexist="x"
@@ -36,21 +35,19 @@ case $1 in
 		docker run --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
                 nodeIP=`docker inspect --format='{{ .NetworkSettings.IPAddress }}' $nodeName`
                 
-	        ### solament arranco node	
-		docker exec -e "WHOAMI=$nodeIP" -e "AUTO=true" -i -t $nodeName sh -c 'exec /usr/src/node.sh' 
-		### faig insert a node
-		#docker exec -e "WHOAMI=$nodeIP" -i -t $nodeName sh -c 'exec /usr/src/register.sh' 
+		# changes to only make inserts of new nodes to the master
+		#before insert done in each node
+		docker exec -e "WHOAMI=$nodeIP" -i -t $nodeName sh -c 'exec /usr/src/node.sh' 
+		# now insert is only for master-- considers it will be active at some point. 
+		#echo ">>>>>>>>>>>>>>>>>>>>>>inserting  $nodeName [$i] nodeIP[$nodeIP]" 
+                #docker exec -e "WHOAMI=$nodeIP" -i -t adhoc-cloud-master sh -c 'exec /usr/src/node.sh' 
+		###########################################################
 	        
                 #num=`docker exec -i -t $nodeName  sh -c 'nodetool status'| grep ^UN | wc -l`
 
                 data_end=`date +%s`
                 ELAPSED_TIME=`expr $data_end - $data_ini`
-                ELAPSED_TIME_INS=`expr $data_end - $data_iniIns`
-                echo -e "$i \t $ELAPSED_TIME \t $ELAPSED_TIME_INS">>$fileName
-		
-		## Using autobootstrap false to start nodes. Manual launch of sync to keep consistency
-		#echo "Lauch cluster data sync after creation"
-		#docker exec -i -t $nodeName sh -c 'nodetool bootstrap resume' 
+                echo -e "$i \t $ELAPSED_TIME">>$fileName
 		
 		#echo "Num $num t $ELAPSED_TIME"
                 #docker run -it -e "WHOAMI=$nodeIP" --link "$nodeName" --rm master-node:latest sh -c 'exec /usr/src/node.sh' 
@@ -60,18 +57,6 @@ case $1 in
 	ELAPSED_TIME=`expr $data_end - $data_ini`
 	echo -e "TOTAL$2 \t $ELAPSED_TIME">>$fileName
 		
-	###echo "Before leaving. Sync all data..."
-	###for ((i=0;i<$2;i++))
-        ###do
-	###	#$numNode=`eval($i+1)`
-	###	numNode=`expr $i + 1`
-	###	nodeName="adhoc-cloud-node$numNode"
-	###	echo "Sync $nodeName..."
-	###	docker exec -i -t $nodeName sh -c 'nodetool rebuild' 
-        ###done
-	###docker exec -i -t adhoc-cloud-master sh -c 'nodetool rebuild' 
-	###echo "END Before leaving. Sync all data..."
-
 	echo "bye"
 	;;
 *)

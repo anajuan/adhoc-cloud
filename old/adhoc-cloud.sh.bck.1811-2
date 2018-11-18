@@ -36,10 +36,11 @@ case $1 in
 		docker run --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
                 nodeIP=`docker inspect --format='{{ .NetworkSettings.IPAddress }}' $nodeName`
                 
-	        ### solament arranco node	
-		docker exec -e "WHOAMI=$nodeIP" -e "AUTO=true" -i -t $nodeName sh -c 'exec /usr/src/node.sh' 
-		### faig insert a node
-		#docker exec -e "WHOAMI=$nodeIP" -i -t $nodeName sh -c 'exec /usr/src/register.sh' 
+	        ### 1811 solament arranco node	
+		echo "K passa?2"
+		docker exec -e "WHOAMI=$nodeIP" -i -t $nodeName sh -c 'exec /usr/src/node.sh' 
+		### 1811 faig insert a node
+		docker exec -e "WHOAMI=$nodeIP" -i -t $nodeName sh -c 'exec /usr/src/register.sh' 
 	        
                 #num=`docker exec -i -t $nodeName  sh -c 'nodetool status'| grep ^UN | wc -l`
 
@@ -49,8 +50,8 @@ case $1 in
                 echo -e "$i \t $ELAPSED_TIME \t $ELAPSED_TIME_INS">>$fileName
 		
 		## Using autobootstrap false to start nodes. Manual launch of sync to keep consistency
-		#echo "Lauch cluster data sync after creation"
-		#docker exec -i -t $nodeName sh -c 'nodetool bootstrap resume' 
+		echo "Lauch cluster data sync after creation"
+		docker exec -i -t $nodeName sh -c 'nodetool bootstrap resume' 
 		
 		#echo "Num $num t $ELAPSED_TIME"
                 #docker run -it -e "WHOAMI=$nodeIP" --link "$nodeName" --rm master-node:latest sh -c 'exec /usr/src/node.sh' 

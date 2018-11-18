@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "create node [$WHOAMI]"
+echo "set Autobootstrap FALSE"
+echo "auto_bootstrap: false" >>/etc/cassandra/cassandra.yaml
+
+while ! cqlsh -e 'describe cluster' ; do
+ sleep 1
+done
+echo "bye, node [$WHOAMI] created..."
