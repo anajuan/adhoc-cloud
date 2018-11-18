@@ -11,4 +11,4 @@ done
 cqlsh -e "INSERT into adhoc_cloud.nodes(id,ip) values (uuid(), '$WHOAMI');"
 cqlsh -e "SELECT * FROM adhoc_cloud.nodes" > /usr/src/nodes.txt
 cat /usr/src/nodes.txt
-echo "bye"
+echo "bye, node [$WHOAMI] created..."

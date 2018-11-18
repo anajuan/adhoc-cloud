@@ -77,6 +77,8 @@ fi
 
 numnodes=`sudo docker ps --format "{{.ID}}: {{.Names}}" | grep $NODENAME | wc -l`
 log "Cluster of $numnodes nodes"
+##### Due to autobootstrap false,  try to sync master before starting to remove nodes
+#####docker exec -i -t adhoc-cloud-master sh -c 'nodetool rebuild'
 tstart=`date +'%s'`
 
 # Kill nodes
