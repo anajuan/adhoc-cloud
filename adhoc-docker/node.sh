@@ -8,6 +8,7 @@ fi
 #echo "set Autobootstrap FALSE"
 #echo "auto_bootstrap: false" >>/etc/cassandra/cassandra.yaml
 
+echo "WAIT TO CASSANDRA START"
 while ! cqlsh -e 'describe cluster' ; do
  sleep 1
 done
