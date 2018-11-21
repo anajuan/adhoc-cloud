@@ -1,0 +1,9 @@
+ExistingClusterSize,NodesLeave,TimeTaken
+10, 2, 4
+ExistingClusterSize,NodesLeave,TimeTaken
+10, 4, 10
+ExistingClusterSize,NodesLeave,TimeTaken
+10, 6, 13
+ExistingClusterSize,NodesLeave,TimeTaken
+10, 8, 18
+2, 1, 2

@@ -63,7 +63,7 @@ case $1 in
                 -initial-cluster $initialClusterStr
                 
                 echo "STATS*****************************************************"
-	        stat=$(curl -L http://localhost:$port3/v2/stats/self)
+	        stat=$(curl -L -Ss http://localhost:$port3/v2/stats/self)
                 echo "STATS*****************************************************"
 
 		data_end=`date +%s`
