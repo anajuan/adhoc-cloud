@@ -5,7 +5,7 @@ case $1 in
 
    	echo "setup"
 	#### MEM ISSUE docker run --rm --name adhoc-cloud-master -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -d adhocc:latest
-	docker run -m 320M --rm --name adhoc-cloud-master -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e JVM_OPTS="-Xms64M -Xmx128M" -d adhocc:latest
+	docker run --rm --name adhoc-cloud-master -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e JVM_OPTS="-Xms64M -Xmx128M" -d adhocc:latest
 	#docker run -m 320M --rm --name adhoc-cloud-master -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -d adhocc:latest
 	#docker run --rm --name adhoc-cloud-master -d adhocc:latest
 	master_ip=`docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master`
@@ -36,7 +36,8 @@ case $1 in
 
 		echo "nodeName $nodeName"
 		#docker run --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
-		docker run -m 320M --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
+		docker run  --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
+		#docker run -m 320M --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
                 nodeIP=`docker inspect --format='{{ .NetworkSettings.IPAddress }}' $nodeName`
                 
 	        ### solament arranco node	
