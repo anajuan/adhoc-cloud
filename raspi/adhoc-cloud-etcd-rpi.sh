@@ -2,33 +2,79 @@
 
 etcd_docker="peterrosell/etcd-rpi:2.3.7"
 memLimit="32M"
-IP=`ip -4 route get 8.8.8.8 | awk {'print $7'} | tr -d '\n'`
 case $1 in
-"standalone")
-
-   	echo "setup ETCD"
+"member")
+	IP=$2
+	nom=$3
+	initialCluster=$4
+	echo "Params IP[$IP] Nom[$nom] clusterMembers[$initialCluster]"
+	#if [ "$IP" == "" ]; then
+	#	IP=`ip -4 route get 8.8.8.8 | awk {'print $7'} | tr -d '\n'`
+	#fi
+	#if [ "$nom" == "" ]; then
+	#	nom="etcd"
+	#fi
+	#if [ "$initialCluster" == "" ]; then
+	#	initialCluster="$nom=http://$IP:2380"
+	#fi
+	#echo "Init IP[$IP] Nom[$nom] clusterMembers[$initialCluster]"
+	
 	docker run --env GOMAXPROCS=4 \
 		-e ETCD_UNSUPPORTED_ARCH=arm \
 		-m $memLimit \
 		-d \
 		-p 4001:4001 -p 2379:2379 -p 2380:2380 \
 		--net=host \
-		--name=etcd0 \
+		--name=$nom \
 		$etcd_docker \
-		-name etcd0 \
+		-name $nom \
 		-advertise-client-urls http://$IP:2379,http://$IP:4001 \
 		-listen-client-urls http://$IP:2379,http://$IP:4001 \
 		-initial-advertise-peer-urls http://$IP:2380 \
 		-listen-peer-urls http://$IP:2380 \
 		-initial-cluster-token etcd-cluster-1 \
-		-initial-cluster etcd0=http://$IP:2380
-	#docker run -m $memLimit -d -p 4001:4001 -p 2380:2380 -p 2379:2379 --net=host --name etcd0  $etcd_docker -name etcd0  -advertise-client-urls http://localhost:2379,http://localhost:4001  -listen-client-urls http://localhost:2379,http://localhost:4001  -initial-advertise-peer-urls http://localhost:2380  -listen-peer-urls http://localhost:2380  -initial-cluster-token etcd-cluster-1  -initial-cluster etcd0=http://localhost:2380
-	echo "HEALTH" 
-	curl -L http://$IP:2379/health
-	echo "MEMBERS"
-	curl -L http://$IP:2379/v2/members
+		-initial-cluster $initialCluster 
+	echo "work done, bye"
 	;;
+"cluster")
+       	echo "cluster"
+	WHO=$2
+	echo "WHO $WHO"
+	IFS=,
+	ary=($WHO)
+	initialClusterStr=""
+	
+	for key in "${!ary[@]}"; do 
+		#####echo "$key ${ary[$key]}";
+		node=${ary[$key]}
+		num=$key
+		#####echo "Node[$node]"
+		#####echo "Num [$num]"
+		IP_Node=$(ssh pi@$node 'ip -4 route get 8.8.8.8'|awk {'print $7'} | tr -d '\n')
+		#####echo "IP[$IP_Node]"	
+		nom="etcd$num=http://$IP_Node:2380";
+		if [ "$initialClusterStr" != "" ]
+		then
+    			initialClusterStr="$initialClusterStr,"
+		fi
+    		initialClusterStr="$initialClusterStr$nom"
+	done
+	
+	for key in "${!ary[@]}"; do 
+		echo "$key ${ary[$key]}";
+		node=${ary[$key]}
+		num=$key
+		echo "Node[$node]"
+		echo "Num [$num]"
+		IP_Node=$(ssh pi@$node 'ip -4 route get 8.8.8.8'|awk {'print $7'} | tr -d '\n')
+		nom="etcd$num"
+		echo "Invoke ---------SSH[ ssh pi@$node '/home/pi/adhoc-cloud/raspi/adhoc-cloud-etcd-rpi.sh member $IP_Node $nom $initialClusterStr'] IP[$IP_Node] Nom[$nom] initialCluster[$initialClusterStr]"
+                ssh pi@$node "/home/pi/adhoc-cloud/raspi/adhoc-cloud-etcd-rpi.sh member $IP_Node $nom $initialClusterStr" 
+	        curl -L http://$IP_Node:2379/v2/stats/self
+	        curl -L http://$IP_Node:2379/v2/members
 
+	done
+	;;
 "nodes") 
 	data_ini=`date +%s`
 	fileName="data/data-addNodesETCD-$data_ini-$2.dat"
