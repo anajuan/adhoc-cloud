@@ -1,0 +1,10 @@
+Nodes raspberrypi-new1-eth0,raspberrypi-new2-eth0,raspberrypi-new3-eth0,raspberrypi-new4-eth0,raspberrypi-jgn1-eth0,raspberrypi-jgn2-eth0,raspberrypi-old2-eth0
+Name 	 Num 	 Acumtime 	 TimeIns
+raspberrypi-new1-eth0 	 0 	 5 	 2
+raspberrypi-new2-eth0 	 1 	 7 	 2
+raspberrypi-new3-eth0 	 2 	 9 	 2
+raspberrypi-new4-eth0 	 3 	 11 	 2
+raspberrypi-jgn1-eth0 	 4 	 13 	 1
+raspberrypi-jgn2-eth0 	 5 	 15 	 2
+raspberrypi-old2-eth0 	 6 	 18 	 2
+Total Cluster Creation Time [19]

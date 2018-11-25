@@ -1,0 +1,10 @@
+Nodes raspberrypi-new1-wlan,raspberrypi-new2-wlan,raspberrypi-new3-wlan,raspberrypi-new4-wlan,raspberrypi-jgn1-wlan,raspberrypi-jgn2-wlan,raspberrypi-old2-wlan
+Name 	 Num 	 Acumtime 	 TimeIns
+raspberrypi-new1-wlan 	 0 	 40 	 4
+raspberrypi-new2-wlan 	 1 	 45 	 4
+raspberrypi-new3-wlan 	 2 	 51 	 4
+raspberrypi-new4-wlan 	 3 	 56 	 4
+raspberrypi-jgn1-wlan 	 4 	 62 	 5
+raspberrypi-jgn2-wlan 	 5 	 67 	 5
+raspberrypi-old2-wlan 	 6 	 72 	 5
+Total Cluster Creation Time [72]
