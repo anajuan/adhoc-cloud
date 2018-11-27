@@ -19,7 +19,7 @@ function kill {
 
 	log "Updating database"
         num=`printf $node | tail -c 1`
-	portNum=`expr $num \* 10`
+	portNum=`expr $num \* 100`
 	portNum=`expr $BASE_PORT + $portNum`
 	log "Num[$num] BASE[$BASE_PORT] portNum[$portNum]"
         ##### TODO call borrar del directory. workarround es update value a removed	

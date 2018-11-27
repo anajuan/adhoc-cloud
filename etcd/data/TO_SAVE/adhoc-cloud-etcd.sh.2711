@@ -36,7 +36,7 @@ case $1 in
 		fi
     		initialClusterStr="$initialClusterStr$nom"
 		#echo $initialClusterStr
-                port2=`expr $port2 + 10`
+                port2=`expr $port2 + 100`
 	done
         port1=4001
 	port2=2380
@@ -54,8 +54,7 @@ case $1 in
            #     -listen-peer-urls http://localhost:$port2\
            #     -initial-cluster-token etcd-cluster-1  \
            #     -initial-cluster $initialClusterStr"
-	   #docker run -m $memLimit -d -p $port1:$port1 -p $port2:$port2 -p $port3:$port3 --net=host --name etcd$i  $etcd_docker -name etcd$i \
-	   docker run -d -p $port1:$port1 -p $port2:$port2 -p $port3:$port3 --net=host --name etcd$i  $etcd_docker -name etcd$i \
+	   docker run -m $memLimit -d -p $port1:$port1 -p $port2:$port2 -p $port3:$port3 --net=host --name etcd$i  $etcd_docker -name etcd$i \
                 -advertise-client-urls http://localhost:$port3,http://localhost:$port1\
                 -listen-client-urls http://localhost:$port3,http://localhost:$port1\
                 -initial-advertise-peer-urls http://localhost:$port2\
@@ -73,9 +72,9 @@ case $1 in
                 #echo "CREAR $i \t $ELAPSED_TIME \t $ELAPSED_TIME_INS"
                 echo -e "$i \t $ELAPSED_TIME \t $ELAPSED_TIME_INS">>$fileName
                 
-		port1=`expr $port1 + 10`
-                port2=`expr $port2 + 10`
-                port3=`expr $port3 + 10`
+		port1=`expr $port1 + 100`
+                port2=`expr $port2 + 100`
+                port3=`expr $port3 + 100`
 	done
 
   	port3=2379
@@ -83,7 +82,7 @@ case $1 in
         do
 	   echo "insert to i[$i] to[http://localhost:$port3/v2/keys/adhoc-cloud/ectd$i] val[etcd$i]"
 	   curl -L http://localhost:$port3/v2/keys/adhoc-cloud/ectd$i -XPUT -d value="etcd$i"
-           port3=`expr $port3 + 10`
+           port3=`expr $port3 + 100`
 	done
 
         echo "HEALTH" 

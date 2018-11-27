@@ -11,6 +11,7 @@ fi
 echo "WAIT TO CASSANDRA START"
 while ! cqlsh -e 'describe cluster' ; do
  sleep 1
+ echo "."
 done
 echo "action register node [$WHOAMI] "
 cqlsh -e "INSERT into adhoc_cloud.nodes(id,ip) values (uuid(), '$WHOAMI');"
