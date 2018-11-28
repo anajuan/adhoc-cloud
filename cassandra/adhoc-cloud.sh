@@ -35,46 +35,35 @@ case $1 in
 		done
 
 		echo "nodeName $nodeName"
-		#docker run --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
-		docker run  --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
+		#docker run  --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
+		docker run --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
 		#docker run -m 320M --rm --name $nodeName -d -e HEAP_NEWSIZE=1M -e MAX_HEAP_SIZE=64M -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' adhoc-cloud-master)"  adhocc:latest
                 nodeIP=`docker inspect --format='{{ .NetworkSettings.IPAddress }}' $nodeName`
                 
-	        ### solament arranco node	
+	        ### No invoco registre node. Despres creació inserto tots valors	
 		docker exec -e "WHOAMI=$nodeIP" -e "AUTO=true" -i -t $nodeName sh -c 'exec /usr/src/node.sh' 
-		### faig insert a node
-		#docker exec -e "WHOAMI=$nodeIP" -i -t $nodeName sh -c 'exec /usr/src/register.sh' 
-	        
-                #num=`docker exec -i -t $nodeName  sh -c 'nodetool status'| grep ^UN | wc -l`
-
-                data_end=`date +%s`
+                
+		data_end=`date +%s`
                 ELAPSED_TIME=`expr $data_end - $data_ini`
                 ELAPSED_TIME_INS=`expr $data_end - $data_iniIns`
                 echo -e "$i \t $ELAPSED_TIME \t $ELAPSED_TIME_INS">>$fileName
 		
-		## Using autobootstrap false to start nodes. Manual launch of sync to keep consistency
-		#echo "Lauch cluster data sync after creation"
-		#docker exec -i -t $nodeName sh -c 'nodetool bootstrap resume' 
-		
-		#echo "Num $num t $ELAPSED_TIME"
-                #docker run -it -e "WHOAMI=$nodeIP" --link "$nodeName" --rm master-node:latest sh -c 'exec /usr/src/node.sh' 
 	done
 
 	data_end=`date +%s`
 	ELAPSED_TIME=`expr $data_end - $data_ini`
 	echo -e "TOTAL$2 \t $ELAPSED_TIME">>$fileName
 		
-	###echo "Before leaving. Sync all data..."
-	###for ((i=0;i<$2;i++))
-        ###do
-	###	#$numNode=`eval($i+1)`
-	###	numNode=`expr $i + 1`
-	###	nodeName="adhoc-cloud-node$numNode"
-	###	echo "Sync $nodeName..."
-	###	docker exec -i -t $nodeName sh -c 'nodetool rebuild' 
-        ###done
-	###docker exec -i -t adhoc-cloud-master sh -c 'nodetool rebuild' 
-	###echo "END Before leaving. Sync all data..."
+	#echo "Before leaving. Sync insert data..."
+	#for ((i=0;i<$2;i++))
+        #do
+	#	numNode=`expr $i + 1`
+	#	nodeName="adhoc-cloud-node$numNode"
+	#	echo "Insert data to $nodeName..."
+        #        nodeIP=`docker inspect --format='{{ .NetworkSettings.IPAddress }}' $nodeName`
+	#	docker exec -e "WHOAMI=$nodeIP" -i -t $nodeName sh -c 'exec /usr/src/register.sh' 
+        #done
+	#echo "END Before leaving. Sync all data..."
 
 	echo "bye"
 	;;
