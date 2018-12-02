@@ -2,7 +2,7 @@
 DATAFILE="./data/data-leave-cluster.dat"
 LOGFILE="./data/data-leave-cluster-LOG.log"
 NODENAME="adhoc-cloud-node"
-SIZE=10
+SIZE=100
 
 function log {
 	DATE='date +%Y/%m/%d:%H:%M:%S'
@@ -36,13 +36,13 @@ sudo docker stats -a --no-stream >>$LOGFILE
 
 echo "ExistingClusterSize,NodesLeave,TimeTaken">> $DATAFILE
 echo "Percentage leaving 20%">>$LOGFILE
-leaving 2
+leaving 20
 echo "Percentage leaving 40%">>$LOGFILE
-leaving 4
+leaving 40
 echo "Percentage leaving 60%">>$LOGFILE
-leaving 6
+leaving 60
 echo "Percentage leaving 80%">>$LOGFILE
-leaving 8
+leaving 80
 
 log "Cleanup"
 ./cleanup.sh $SIZE

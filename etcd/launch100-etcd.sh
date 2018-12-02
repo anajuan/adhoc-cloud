@@ -1,5 +1,5 @@
 #!/bin/bash
-SIZE=10
+SIZE=100
 DATAFILE="./data/dataetcd-leave-cluster.dat"
 LOGFILE="./data/dataetcd-leave-cluster-LOG.log"
 function log {
@@ -22,27 +22,27 @@ log "Percentage Leaving 20%"
 echo "Percentage Leaving 20%">>$LOGFILE
 sudo ./adhoc-cloud-etcd.sh nodes $SIZE
 sudo docker stats -a --no-stream >>$LOGFILE
-leaving 2
-./cleanup-etcd.sh 8
+leaving 20
+./cleanup-etcd.sh 80
 
 log "Percentage Leaving 40%"
 echo "Percentage Leaving 40%">>$LOGFILE
 sudo ./adhoc-cloud-etcd.sh nodes $SIZE
 sudo docker stats -a --no-stream >>$LOGFILE
-leaving 4
-./cleanup-etcd.sh 6
+leaving 40
+./cleanup-etcd.sh 60
 
 log "Percentage Leaving 60%"
 echo "Percentage Leaving 60%">>$LOGFILE
 sudo ./adhoc-cloud-etcd.sh nodes $SIZE
 sudo docker stats -a --no-stream >>$LOGFILE
-leaving 6
-./cleanup-etcd.sh 4 
+leaving 60
+./cleanup-etcd.sh 40 
 
 log "Percentage Leaving 80%"
 echo "Percentage Leaving 80%">>$LOGFILE
 sudo ./adhoc-cloud-etcd.sh nodes $SIZE
 sudo docker stats -a --no-stream >>$LOGFILE
-leaving 8
-./cleanup-etcd.sh 2
+leaving 80
+./cleanup-etcd.sh 20
 

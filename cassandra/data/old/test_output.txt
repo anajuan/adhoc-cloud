@@ -1,0 +1,79 @@
+[2J[HCONTAINER ID        NAME                 CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+21fd8a536c15        adhoc-cloud-node10   2.61%               256.8MiB / 7.789GiB   3.22%               815kB / 880kB       0B / 5.07MB         110
+6ea869ea6822        adhoc-cloud-node8    2.71%               259.7MiB / 7.789GiB   3.26%               966kB / 996kB       4.1kB / 4.44MB      114
+40c12f8af7c0        adhoc-cloud-node7    2.70%               250.1MiB / 7.789GiB   3.14%               1.01MB / 1.01MB     0B / 4.11MB         114
+7b0f5dee5c7d        adhoc-cloud-node6    2.69%               255.1MiB / 7.789GiB   3.20%               1.1MB / 1.08MB      0B / 3.69MB         114
+5b7b74ed4733        adhoc-cloud-node5    2.62%               259MiB / 7.789GiB     3.25%               1.15MB / 1.11MB     0B / 3.61MB         111
+88cb19160433        adhoc-cloud-node3    2.64%               262.2MiB / 7.789GiB   3.29%               1.22MB / 1.09MB     8.19kB / 2.82MB     120
+817b8e09e654        adhoc-cloud-node2    2.51%               252.8MiB / 7.789GiB   3.17%               1.34MB / 1.17MB     53.2kB / 2.47MB     113
+0aaa6ef7ff6c        adhoc-cloud-node1    2.40%               257.5MiB / 7.789GiB   3.23%               1.37MB / 1.19MB     176kB / 2.15MB      117
+69367086e699        adhoc-cloud-master   3.10%               347.8MiB / 7.789GiB   4.36%               1.58MB / 1.66MB     80.5MB / 2.68MB     142
+[2J[HCONTAINER ID        NAME                 CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+21fd8a536c15        adhoc-cloud-node10   2.61%               256.8MiB / 7.789GiB   3.22%               815kB / 880kB       0B / 5.07MB         110
+6ea869ea6822        adhoc-cloud-node8    2.71%               259.7MiB / 7.789GiB   3.26%               966kB / 996kB       4.1kB / 4.44MB      114
+40c12f8af7c0        adhoc-cloud-node7    2.70%               250.1MiB / 7.789GiB   3.14%               1.01MB / 1.01MB     0B / 4.11MB         114
+7b0f5dee5c7d        adhoc-cloud-node6    2.69%               255.1MiB / 7.789GiB   3.20%               1.1MB / 1.08MB      0B / 3.69MB         114
+5b7b74ed4733        adhoc-cloud-node5    2.62%               259MiB / 7.789GiB     3.25%               1.15MB / 1.11MB     0B / 3.61MB         111
+88cb19160433        adhoc-cloud-node3    2.64%               262.2MiB / 7.789GiB   3.29%               1.22MB / 1.09MB     8.19kB / 2.82MB     120
+817b8e09e654        adhoc-cloud-node2    2.51%               252.8MiB / 7.789GiB   3.17%               1.34MB / 1.17MB     53.2kB / 2.47MB     113
+0aaa6ef7ff6c        adhoc-cloud-node1    2.40%               257.5MiB / 7.789GiB   3.23%               1.37MB / 1.19MB     176kB / 2.15MB      117
+69367086e699        adhoc-cloud-master   3.10%               347.8MiB / 7.789GiB   4.36%               1.58MB / 1.66MB     80.5MB / 2.68MB     142
+[2J[HCONTAINER ID        NAME                 CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+21fd8a536c15        adhoc-cloud-node10   1.36%               256.8MiB / 7.789GiB   3.22%               816kB / 881kB       0B / 5.07MB         110
+6ea869ea6822        adhoc-cloud-node8    1.58%               259.7MiB / 7.789GiB   3.26%               967kB / 997kB       4.1kB / 4.44MB      114
+40c12f8af7c0        adhoc-cloud-node7    1.29%               250.1MiB / 7.789GiB   3.14%               1.01MB / 1.01MB     0B / 4.11MB         114
+7b0f5dee5c7d        adhoc-cloud-node6    1.18%               255.1MiB / 7.789GiB   3.20%               1.1MB / 1.08MB      0B / 3.69MB         114
+5b7b74ed4733        adhoc-cloud-node5    0.91%               259MiB / 7.789GiB     3.25%               1.15MB / 1.11MB     0B / 3.61MB         111
+88cb19160433        adhoc-cloud-node3    7.26%               262.3MiB / 7.789GiB   3.29%               1.22MB / 1.09MB     8.19kB / 2.82MB     120
+817b8e09e654        adhoc-cloud-node2    0.33%               252.8MiB / 7.789GiB   3.17%               1.34MB / 1.17MB     53.2kB / 2.47MB     113
+0aaa6ef7ff6c        adhoc-cloud-node1    0.25%               257.5MiB / 7.789GiB   3.23%               1.37MB / 1.19MB     176kB / 2.15MB      117
+69367086e699        adhoc-cloud-master   0.27%               347.8MiB / 7.789GiB   4.36%               1.58MB / 1.66MB     80.5MB / 2.68MB     142
+[2J[HCONTAINER ID        NAME                 CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+21fd8a536c15        adhoc-cloud-node10   1.36%               256.8MiB / 7.789GiB   3.22%               816kB / 881kB       0B / 5.07MB         110
+6ea869ea6822        adhoc-cloud-node8    1.58%               259.7MiB / 7.789GiB   3.26%               967kB / 997kB       4.1kB / 4.44MB      114
+40c12f8af7c0        adhoc-cloud-node7    1.29%               250.1MiB / 7.789GiB   3.14%               1.01MB / 1.01MB     0B / 4.11MB         114
+7b0f5dee5c7d        adhoc-cloud-node6    1.18%               255.1MiB / 7.789GiB   3.20%               1.1MB / 1.08MB      0B / 3.69MB         114
+5b7b74ed4733        adhoc-cloud-node5    0.91%               259MiB / 7.789GiB     3.25%               1.15MB / 1.11MB     0B / 3.61MB         111
+88cb19160433        adhoc-cloud-node3    7.26%               262.3MiB / 7.789GiB   3.29%               1.22MB / 1.09MB     8.19kB / 2.82MB     120
+817b8e09e654        adhoc-cloud-node2    0.33%               252.8MiB / 7.789GiB   3.17%               1.34MB / 1.17MB     53.2kB / 2.47MB     113
+0aaa6ef7ff6c        adhoc-cloud-node1    0.25%               257.5MiB / 7.789GiB   3.23%               1.37MB / 1.19MB     176kB / 2.15MB      117
+69367086e699        adhoc-cloud-master   0.27%               347.8MiB / 7.789GiB   4.36%               1.58MB / 1.66MB     80.5MB / 2.68MB     142
+[2J[HCONTAINER ID        NAME                 CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+21fd8a536c15        adhoc-cloud-node10   2.15%               256.8MiB / 7.789GiB   3.22%               817kB / 882kB       0B / 5.07MB         110
+6ea869ea6822        adhoc-cloud-node8    4.94%               259.7MiB / 7.789GiB   3.26%               969kB / 998kB       4.1kB / 4.44MB      114
+40c12f8af7c0        adhoc-cloud-node7    1.37%               250.1MiB / 7.789GiB   3.14%               1.01MB / 1.01MB     0B / 4.11MB         114
+7b0f5dee5c7d        adhoc-cloud-node6    1.71%               255.1MiB / 7.789GiB   3.20%               1.11MB / 1.08MB     0B / 3.69MB         114
+5b7b74ed4733        adhoc-cloud-node5    1.22%               259MiB / 7.789GiB     3.25%               1.15MB / 1.11MB     0B / 3.61MB         111
+88cb19160433        adhoc-cloud-node3    1.17%               262.3MiB / 7.789GiB   3.29%               1.22MB / 1.1MB      8.19kB / 2.82MB     120
+817b8e09e654        adhoc-cloud-node2    1.10%               252.8MiB / 7.789GiB   3.17%               1.34MB / 1.17MB     53.2kB / 2.47MB     113
+0aaa6ef7ff6c        adhoc-cloud-node1    0.26%               257.5MiB / 7.789GiB   3.23%               1.37MB / 1.19MB     176kB / 2.15MB      117
+69367086e699        adhoc-cloud-master   0.35%               347.8MiB / 7.789GiB   4.36%               1.58MB / 1.66MB     80.5MB / 2.68MB     142
+[2J[HCONTAINER ID        NAME                 CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+21fd8a536c15        adhoc-cloud-node10   2.15%               256.8MiB / 7.789GiB   3.22%               817kB / 882kB       0B / 5.07MB         110
+6ea869ea6822        adhoc-cloud-node8    4.94%               259.7MiB / 7.789GiB   3.26%               969kB / 998kB       4.1kB / 4.44MB      114
+40c12f8af7c0        adhoc-cloud-node7    1.37%               250.1MiB / 7.789GiB   3.14%               1.01MB / 1.01MB     0B / 4.11MB         114
+7b0f5dee5c7d        adhoc-cloud-node6    1.71%               255.1MiB / 7.789GiB   3.20%               1.11MB / 1.08MB     0B / 3.69MB         114
+5b7b74ed4733        adhoc-cloud-node5    1.22%               259MiB / 7.789GiB     3.25%               1.15MB / 1.11MB     0B / 3.61MB         111
+88cb19160433        adhoc-cloud-node3    1.17%               262.3MiB / 7.789GiB   3.29%               1.22MB / 1.1MB      8.19kB / 2.82MB     120
+817b8e09e654        adhoc-cloud-node2    1.10%               252.8MiB / 7.789GiB   3.17%               1.34MB / 1.17MB     53.2kB / 2.47MB     113
+0aaa6ef7ff6c        adhoc-cloud-node1    0.26%               257.5MiB / 7.789GiB   3.23%               1.37MB / 1.19MB     176kB / 2.15MB      117
+69367086e699        adhoc-cloud-master   0.35%               347.8MiB / 7.789GiB   4.36%               1.58MB / 1.66MB     80.5MB / 2.68MB     142
+[2J[HCONTAINER ID        NAME                 CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+21fd8a536c15        adhoc-cloud-node10   1.37%               256.8MiB / 7.789GiB   3.22%               819kB / 883kB       0B / 5.07MB         110
+6ea869ea6822        adhoc-cloud-node8    1.29%               259.7MiB / 7.789GiB   3.26%               971kB / 1e+03kB     4.1kB / 4.44MB      114
+40c12f8af7c0        adhoc-cloud-node7    1.23%               250.1MiB / 7.789GiB   3.14%               1.01MB / 1.01MB     0B / 4.11MB         114
+7b0f5dee5c7d        adhoc-cloud-node6    1.26%               255.1MiB / 7.789GiB   3.20%               1.11MB / 1.08MB     0B / 3.69MB         114
+5b7b74ed4733        adhoc-cloud-node5    1.16%               259MiB / 7.789GiB     3.25%               1.15MB / 1.11MB     0B / 3.61MB         111
+88cb19160433        adhoc-cloud-node3    0.44%               262.3MiB / 7.789GiB   3.29%               1.22MB / 1.1MB      8.19kB / 2.82MB     120
+817b8e09e654        adhoc-cloud-node2    0.26%               252.8MiB / 7.789GiB   3.17%               1.34MB / 1.17MB     53.2kB / 2.47MB     113
+0aaa6ef7ff6c        adhoc-cloud-node1    0.26%               257.5MiB / 7.789GiB   3.23%               1.37MB / 1.19MB     176kB / 2.15MB      117
+69367086e699        adhoc-cloud-master   0.27%               347.8MiB / 7.789GiB   4.36%               1.59MB / 1.66MB     80.5MB / 2.68MB     142
+CONTAINER ID        NAME                 CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+e21435df8c30        adhoc-cloud-node2    54.03%              184.4MiB / 7.789GiB   2.31%               56.2kB / 9.27kB     0B / 831kB          90
+d4bdea6cd6b0        adhoc-cloud-node9    2.98%               265.4MiB / 7.789GiB   3.33%               1.15MB / 1.12MB     0B / 5.15MB         107
+432b093e09c3        adhoc-cloud-node4    1.40%               255.1MiB / 7.789GiB   3.20%               1.39MB / 1.2MB      0B / 4.62MB         110
+6ea869ea6822        adhoc-cloud-node8    1.44%               259.9MiB / 7.789GiB   3.26%               1.87MB / 1.77MB     4.1kB / 4.94MB      113
+40c12f8af7c0        adhoc-cloud-node7    0.34%               251.9MiB / 7.789GiB   3.16%               1.88MB / 1.77MB     0B / 4.63MB         109
+5b7b74ed4733        adhoc-cloud-node5    0.31%               260.8MiB / 7.789GiB   3.27%               2.07MB / 1.88MB     0B / 4.14MB         109
+0aaa6ef7ff6c        adhoc-cloud-node1    0.30%               259.7MiB / 7.789GiB   3.26%               2.29MB / 1.93MB     176kB / 2.63MB      113
+69367086e699        adhoc-cloud-master   1.05%               281.4MiB / 7.789GiB   3.53%               2.66MB / 2.86MB     80.5MB / 4.03MB     118

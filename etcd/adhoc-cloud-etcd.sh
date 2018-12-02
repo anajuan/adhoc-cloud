@@ -63,9 +63,9 @@ case $1 in
                 -initial-cluster-token etcd-cluster-1  \
                 -initial-cluster $initialClusterStr
                 
-                echo "STATS*****************************************************"
-	        stat=$(curl -L -Ss http://localhost:$port3/v2/stats/self)
-                echo "STATS*****************************************************"
+                #echo "STATS*****************************************************"
+	        #stat=$(curl -L -Ss http://localhost:$port3/v2/stats/self)
+                #echo "STATS*****************************************************"
 
 		data_end=`date +%s`
                 ELAPSED_TIME=`expr $data_end - $data_ini`
