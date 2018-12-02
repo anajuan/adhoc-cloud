@@ -1,0 +1,17 @@
+Creating cluster of 10 nodes
+CONTAINER ID        NAME                 CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+c00c4ded0ec1        adhoc-cloud-node10   40.81%              327.9MiB / 373.8GiB   0.09%               532kB / 640kB       0B / 4.8MB          305
+46e601ddbf4d        adhoc-cloud-node9    12.69%              326MiB / 373.8GiB     0.09%               619kB / 702kB       0B / 4.56MB         184
+4a9ed95ca23f        adhoc-cloud-node8    13.60%              328.2MiB / 373.8GiB   0.09%               672kB / 722kB       0B / 4.35MB         192
+780cbbc4a2bb        adhoc-cloud-node7    13.15%              345.6MiB / 373.8GiB   0.09%               774kB / 802kB       0B / 3.91MB         192
+41744f248902        adhoc-cloud-node6    13.01%              333.6MiB / 373.8GiB   0.09%               788kB / 801kB       0B / 3.51MB         199
+336c09e4efab        adhoc-cloud-node5    12.56%              322.1MiB / 373.8GiB   0.08%               837kB / 815kB       4.1kB / 3.26MB      191
+aa9857433c5d        adhoc-cloud-node4    11.06%              342.4MiB / 373.8GiB   0.09%               933kB / 895kB       0B / 2.92MB         189
+3836a12cb006        adhoc-cloud-node3    13.55%              322.1MiB / 373.8GiB   0.08%               990kB / 937kB       0B / 2.61MB         177
+511d2b4bc06a        adhoc-cloud-node2    13.62%              311.4MiB / 373.8GiB   0.08%               1.03MB / 975kB      0B / 2.47MB         176
+c66cbd318846        adhoc-cloud-node1    0.42%               316.5MiB / 373.8GiB   0.08%               1.14MB / 976kB      0B / 2.23MB         184
+f2faebd0a3fd        adhoc-cloud-master   0.77%               339.3MiB / 373.8GiB   0.09%               1.29MB / 1.32MB     0B / 2.34MB         193
+Percentage leaving 20%
+Percentage leaving 40%
+Percentage leaving 60%
+Percentage leaving 80%

@@ -1,0 +1,5 @@
+ExistingClusterSize,NodesLeave,TimeTaken
+10, 2, 85
+10, 4, 166
+10, 6, 243
+10, 8, 323
