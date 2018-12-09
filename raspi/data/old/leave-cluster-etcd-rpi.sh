@@ -4,7 +4,7 @@ DATAFILE="./data/dataetcdrpi-leave-cluster.dat"
 NODENAME="etcd"
 BASE_PORT=2379
 
-tstart=`date +'%s.%3N'`
+tstart=`date +'%s'`
 WHO=$1
 echo "leave_cluster) WHO $WHO"
 IFS=,
@@ -32,8 +32,8 @@ for key in "${!ary[@]}"; do
         ssh pi@$node "/home/pi/adhoc-cloud/raspi/cleanup-etcd-rpi.sh 1"
 done
 
-tend=`date +'%s.%3N'`
-ttotal=$(awk -v v1=$tend -v v2=$tstart 'BEGIN {print v1-v2}')
+tend=`date +'%s'`
+ttotal=`expr $tend - $tstart`
 
 echo "Total time of $ttotal seconds"
 

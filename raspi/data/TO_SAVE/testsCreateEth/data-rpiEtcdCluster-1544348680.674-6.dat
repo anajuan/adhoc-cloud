@@ -1,0 +1,21 @@
+Nodes raspberrypi-new1-eth0,raspberrypi-new2-eth0,raspberrypi-new3-eth0,raspberrypi-new4-eth0,raspberrypi-new5-eth0,raspberrypi-jgn1-eth0
+Name 	 Num 	 Acumtime 	 TimeIns
+raspberrypi-new1-eth0 	 0 	 4.344 	 1.977
+raspberrypi-new2-eth0 	 1 	 6.412 	 1.884
+raspberrypi-new3-eth0 	 2 	 8.527 	 1.884
+raspberrypi-new4-eth0 	 3 	 10.5 	 1.776
+raspberrypi-new5-eth0 	 4 	 12.462 	 1.763
+raspberrypi-jgn1-eth0 	 5 	 14.106 	 1.387
+Total Cluster Creation Time [14.352]
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+a9cd02e329f9        etcd0               5.26%               6.629MiB / 32MiB    20.72%              0B / 0B             0B / 143kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+8a33d4d4bce2        etcd1               9.32%               7.539MiB / 32MiB    23.56%              0B / 0B             0B / 147kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+539ee414512b        etcd2               3.86%               5.945MiB / 32MiB    18.58%              0B / 0B             0B / 160kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+c901109bdfcf        etcd3               4.38%               5.797MiB / 32MiB    18.12%              0B / 0B             0B / 184kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+a5e3702bbabb        etcd4               3.64%               5.898MiB / 32MiB    18.43%              0B / 0B             0B / 172kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+5601920b06e1        etcd5               4.03%               5.809MiB / 32MiB    18.15%              0B / 0B             0B / 172kB          0
