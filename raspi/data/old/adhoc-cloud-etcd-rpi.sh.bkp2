@@ -53,8 +53,7 @@ case $1 in
 	clusterSize=${#ary[@]}
 	echo "cluster_create) size is [$clusterSize]"
         declare -a IPs
-	#data_ini=`date +%s`
-	data_ini=`date +%s.%3N`
+	data_ini=`date +%s`
 	fileName="data/data-rpiEtcdCluster-$data_ini-$clusterSize.dat"
 	echo -e "Nodes $WHO">>$fileName
 	echo -e "Name \t Num \t Acumtime \t TimeIns">>$fileName
@@ -75,19 +74,16 @@ case $1 in
 	
         ### Step 2: Instatiate etcd container in each rpi hosts 	
 	for key in "${!ary[@]}"; do 
-                data_iniIns=`date +%s.%3N`
+                data_iniIns=`date +%s`
 		node=${ary[$key]}
 		num=$key
 		IP_Node=${IPs[num]}
 		nom="etcd$num"
 		value="$node#$IP_Node"
                 ssh pi@$node "/home/pi/adhoc-cloud/raspi/adhoc-cloud-etcd-rpi.sh member $IP_Node $nom $initialClusterStr" 
-		#data_end=`date +%s`
-		data_end=`date +%s.%3N`
-                #ELAPSED_TIME=`expr $data_end - $data_ini`
-		ELAPSED_TIME=$(awk -v v1=$data_end -v v2=$data_ini 'BEGIN {print v1-v2}')
-		ELAPSED_TIME_INS=$(awk -v v1=$data_end -v v2=$data_iniIns 'BEGIN {print v1-v2}')
-                #ELAPSED_TIME_INS=`expr $data_end - $data_iniIns`
+		data_end=`date +%s`
+                ELAPSED_TIME=`expr $data_end - $data_ini`
+                ELAPSED_TIME_INS=`expr $data_end - $data_iniIns`
                 echo -e "$node \t $num \t $ELAPSED_TIME \t $ELAPSED_TIME_INS">>$fileName
 		echo "cluster_create) Num [$num] Node[$node] IP[$IP_Node] InstanceTime[$ELAPSED_TIME_INS] STimeFromStart[$ELAPSED_TIME]"
 
@@ -108,9 +104,8 @@ case $1 in
 		nodeStats=$(curl -sS http://$IP_Node:2379/v2/stats/self)
 		echo "cluster_create) Node Stats $nodeStats"
 	done
-	data_end=`date +%s.%3N`
-        #ELAPSED_TIME=`expr $data_end - $data_ini`
-	ELAPSED_TIME=$(awk -v v1=$data_end -v v2=$data_ini 'BEGIN {print v1-v2}')
+	data_end=`date +%s`
+        ELAPSED_TIME=`expr $data_end - $data_ini`
 	echo -e "Total Cluster Creation Time [$ELAPSED_TIME]">>$fileName
 
         ### Step 3: Insert each value in keyspace. This can not be done until the full cluster is instantiated.  	
@@ -132,12 +127,6 @@ case $1 in
 	echo "cluster_data) Members[$members]"
 	data=$(curl -sS http://$IP_FirstNode:2379/v2/keys/adhoc-cloud)
 	echo "cluster_data) DATA[$data]"
-	### Step 5: save memory usage on each node
-
-	for key in "${!ary[@]}"; do
-		node=${ary[$key]}
-                ssh pi@$node 'docker stats --no-stream'>>$fileName
-	done
 	;;
 *)
 	echo "k ase?"

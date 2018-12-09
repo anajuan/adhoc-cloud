@@ -1,0 +1,21 @@
+Nodes raspberrypi-new1-eth0,raspberrypi-new2-eth0,raspberrypi-new3-eth0,raspberrypi-new4-eth0,raspberrypi-new5-eth0,raspberrypi-jgn1-eth0
+Name 	 Num 	 Acumtime 	 TimeIns
+raspberrypi-new1-eth0 	 0 	 4 	 2
+raspberrypi-new2-eth0 	 1 	 6 	 2
+raspberrypi-new3-eth0 	 2 	 8 	 2
+raspberrypi-new4-eth0 	 3 	 10 	 2
+raspberrypi-new5-eth0 	 4 	 12 	 2
+raspberrypi-jgn1-eth0 	 5 	 13 	 1
+Total Cluster Creation Time [14]
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+4bab0ef18e73        etcd0               5.41%               6.547MiB / 32MiB    20.46%              0B / 0B             0B / 139kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+25a34dbcfba5        etcd1               5.45%               6.348MiB / 32MiB    19.84%              0B / 0B             111kB / 147kB       0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+b033e8894b2c        etcd2               9.69%               7.316MiB / 32MiB    22.86%              0B / 0B             131kB / 168kB       0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+324b56828911        etcd3               4.19%               5.5MiB / 32MiB      17.19%              0B / 0B             0B / 180kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+99dfbcfc896b        etcd4               4.74%               5.551MiB / 32MiB    17.35%              0B / 0B             0B / 176kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+fdcf6b8f2c10        etcd5               4.44%               5.715MiB / 32MiB    17.86%              0B / 0B             0B / 180kB          0
