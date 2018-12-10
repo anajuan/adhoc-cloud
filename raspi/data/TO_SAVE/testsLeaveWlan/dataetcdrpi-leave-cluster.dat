@@ -1,0 +1,8 @@
+clusterSize, numLeave, ttotal
+8, 2, 6.541
+clusterSize, numLeave, ttotal
+8, 4, 12.909
+clusterSize, numLeave, ttotal
+8, 6, 22.115
+clusterSize, numLeave, ttotal
+8, 8, 44.791

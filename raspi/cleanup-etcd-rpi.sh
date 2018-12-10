@@ -9,7 +9,7 @@ function log {
 }
 
 function kill {
-	node=`sudo docker ps --format "{{.ID}}: {{.Names}}" | grep $NODENAME | cut -d: -f2 | shuf | head -1`
+	node=`sudo docker ps -a --format "{{.ID}}: {{.Names}}" | grep $NODENAME | cut -d: -f2 | shuf | head -1`
 	if [ "$node" == "" ]; then
 		log "Not enough nodes. Ending the process"
 		exit 1
