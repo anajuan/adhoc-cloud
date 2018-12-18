@@ -42,8 +42,7 @@ fi
 
 numnodes=`sudo docker ps --format "{{.ID}}: {{.Names}}" | grep $NODENAME | wc -l`
 log "Cluster of $numnodes nodes"
-#tstart=`date +'%s'`
-tstart=`date +'%s.%3N'`
+tstart=`date +'%s'`
 
 # Kill nodes
 for ((i=0;i<$1;i++))
@@ -52,11 +51,8 @@ do
 	kill
 done
 
-#tend=`date +'%s'`
-tend=`date +'%s.%3N'`
-#ttotal=`expr $tend - $tstart`
-
-ttotal=$(awk -v v1=$tend -v v2=$tstart 'BEGIN {print v1-v2}')
+tend=`date +'%s'`
+ttotal=`expr $tend - $tstart`
 
 log "Total time of $ttotal seconds"
 

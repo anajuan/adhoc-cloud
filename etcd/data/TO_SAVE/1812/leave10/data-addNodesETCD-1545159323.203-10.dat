@@ -1,0 +1,23 @@
+num 	 Acumtime 	 TimeIns
+0 	 0.332 	 0.324
+1 	 0.687 	 0.348
+2 	 1.052 	 0.357
+3 	 1.412 	 0.353
+4 	 1.767 	 0.348
+5 	 2.155 	 0.38
+6 	 2.52 	 0.357
+7 	 2.903 	 0.376
+8 	 3.274 	 0.364
+9 	 3.627 	 0.346
+TOTAL10 	 4.052
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+ce48a3100038        etcd9               0.61%               15.67MiB / 62.13GiB   0.02%               0B / 0B             0B / 65.5kB         13
+6fe8c5839d59        etcd8               0.48%               7.777MiB / 62.13GiB   0.01%               0B / 0B             0B / 86kB           13
+d678960bc29e        etcd7               0.45%               8.082MiB / 62.13GiB   0.01%               0B / 0B             0B / 111kB          14
+312032db3dcf        etcd6               0.63%               8.727MiB / 62.13GiB   0.01%               0B / 0B             0B / 111kB          15
+87f864e02c6d        etcd5               0.62%               9.195MiB / 62.13GiB   0.01%               0B / 0B             0B / 115kB          13
+492c4ab9effc        etcd4               1.59%               9.996MiB / 62.13GiB   0.02%               0B / 0B             0B / 111kB          15
+5daaeefcb9dd        etcd3               1.44%               10.71MiB / 62.13GiB   0.02%               0B / 0B             0B / 119kB          13
+3194cb3eb29f        etcd2               1.44%               11.87MiB / 62.13GiB   0.02%               0B / 0B             0B / 115kB          15
+c66c043ae7c8        etcd1               0.64%               12.49MiB / 62.13GiB   0.02%               0B / 0B             0B / 119kB          14
+5319b2cab759        etcd0               1.63%               12.88MiB / 62.13GiB   0.02%               0B / 0B             0B / 115kB          14

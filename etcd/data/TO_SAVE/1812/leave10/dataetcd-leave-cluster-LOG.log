@@ -1,0 +1,49 @@
+Creating cluster of 10 nodes
+Percentage Leaving 20%
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+1063b3c9044e        etcd9               1.67%               40.61MiB / 62.13GiB   0.06%               0B / 0B             0B / 94.2kB         12
+126350e038e7        etcd8               1.43%               8.742MiB / 62.13GiB   0.01%               0B / 0B             0B / 119kB          14
+d9f9227f1a86        etcd7               1.56%               8.539MiB / 62.13GiB   0.01%               0B / 0B             0B / 119kB          13
+0d8970f87e28        etcd6               0.82%               9.074MiB / 62.13GiB   0.01%               0B / 0B             0B / 123kB          13
+b0c16eccd5ce        etcd5               0.83%               9.742MiB / 62.13GiB   0.02%               0B / 0B             0B / 123kB          13
+4e7c8a11adb9        etcd4               0.61%               10.2MiB / 62.13GiB    0.02%               0B / 0B             0B / 123kB          13
+d5a9f1f4a115        etcd3               0.59%               11.21MiB / 62.13GiB   0.02%               0B / 0B             0B / 127kB          14
+eceea4e172d7        etcd2               0.77%               11.64MiB / 62.13GiB   0.02%               0B / 0B             0B / 123kB          12
+ae540bb2571b        etcd1               0.73%               13MiB / 62.13GiB      0.02%               0B / 0B             0B / 127kB          14
+799c1d2aee3b        etcd0               2.01%               13.77MiB / 62.13GiB   0.02%               0B / 0B             0B / 127kB          14
+Percentage Leaving 40%
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+4b546e9bc627        etcd9               0.61%               7.785MiB / 62.13GiB   0.01%               0B / 0B             0B / 73.7kB         13
+1f1ed748965e        etcd8               0.59%               8.164MiB / 62.13GiB   0.01%               0B / 0B             0B / 98.3kB         14
+f54997853e8b        etcd7               1.60%               8.566MiB / 62.13GiB   0.01%               0B / 0B             0B / 115kB          13
+0a9a075b3819        etcd6               1.48%               9.031MiB / 62.13GiB   0.01%               0B / 0B             0B / 123kB          13
+e764f8fb5f31        etcd5               0.64%               9.125MiB / 62.13GiB   0.01%               0B / 0B             0B / 115kB          15
+cd804672c051        etcd4               0.72%               10.05MiB / 62.13GiB   0.02%               0B / 0B             0B / 123kB          14
+5e136ea04b3d        etcd3               0.64%               10.88MiB / 62.13GiB   0.02%               0B / 0B             0B / 123kB          13
+324e4884db20        etcd2               0.47%               11.16MiB / 62.13GiB   0.02%               0B / 0B             0B / 127kB          13
+e671cc541ff7        etcd1               0.44%               17.02MiB / 62.13GiB   0.03%               0B / 0B             0B / 123kB          14
+a0b90fea208f        etcd0               1.62%               13.23MiB / 62.13GiB   0.02%               0B / 0B             0B / 123kB          16
+Percentage Leaving 60%
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+a03bb30ba995        etcd9               0.59%               8.098MiB / 62.13GiB   0.01%               0B / 0B             0B / 81.9kB         13
+63ae31e75e2a        etcd8               0.60%               8.039MiB / 62.13GiB   0.01%               0B / 0B             0B / 106kB          13
+22e378166698        etcd7               4.27%               8.637MiB / 62.13GiB   0.01%               0B / 0B             0B / 111kB          14
+9e009a8a8c5b        etcd6               1.31%               8.957MiB / 62.13GiB   0.01%               0B / 0B             0B / 115kB          14
+1023b9ade5c0        etcd5               1.12%               9.512MiB / 62.13GiB   0.01%               0B / 0B             0B / 115kB          13
+adfdbaaf979e        etcd4               0.68%               9.406MiB / 62.13GiB   0.01%               0B / 0B             0B / 115kB          14
+8d64c6a277f9        etcd3               0.69%               10.88MiB / 62.13GiB   0.02%               0B / 0B             0B / 119kB          14
+b970e3b1b3ef        etcd2               0.49%               36.48MiB / 62.13GiB   0.06%               0B / 0B             0B / 119kB          13
+92400451f93a        etcd1               0.45%               10.72MiB / 62.13GiB   0.02%               0B / 0B             0B / 119kB          13
+eef6018274f3        etcd0               1.57%               12.42MiB / 62.13GiB   0.02%               0B / 0B             0B / 119kB          14
+Percentage Leaving 80%
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+ce48a3100038        etcd9               1.36%               16.18MiB / 62.13GiB   0.03%               0B / 0B             0B / 86kB           13
+6fe8c5839d59        etcd8               1.42%               8.34MiB / 62.13GiB    0.01%               0B / 0B             0B / 106kB          13
+d678960bc29e        etcd7               0.78%               8.949MiB / 62.13GiB   0.01%               0B / 0B             0B / 131kB          14
+312032db3dcf        etcd6               0.83%               9.516MiB / 62.13GiB   0.01%               0B / 0B             0B / 131kB          15
+87f864e02c6d        etcd5               0.79%               9.801MiB / 62.13GiB   0.02%               0B / 0B             0B / 135kB          13
+492c4ab9effc        etcd4               0.57%               10.33MiB / 62.13GiB   0.02%               0B / 0B             0B / 131kB          15
+5daaeefcb9dd        etcd3               0.55%               10.8MiB / 62.13GiB    0.02%               0B / 0B             0B / 139kB          13
+3194cb3eb29f        etcd2               0.69%               12.08MiB / 62.13GiB   0.02%               0B / 0B             0B / 135kB          15
+c66c043ae7c8        etcd1               0.72%               12.76MiB / 62.13GiB   0.02%               0B / 0B             0B / 139kB          14
+5319b2cab759        etcd0               2.15%               13.42MiB / 62.13GiB   0.02%               0B / 0B             0B / 135kB          14

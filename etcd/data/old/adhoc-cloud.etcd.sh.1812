@@ -20,8 +20,7 @@ case $1 in
 	;;
 
 "nodes") 
-	#data_ini=`date +%s`
-	data_ini=`date +%s.%3N`
+	data_ini=`date +%s`
 	fileName="data/data-addNodesETCD-$data_ini-$2.dat"
 	echo -e "num \t Acumtime \t TimeIns">>$fileName
 	echo "$data_ini vols $2 fills"
@@ -44,8 +43,7 @@ case $1 in
 	port3=2379	
 	for ((i=0; i<$2; i++))
 	do
-           #data_iniIns=`date +%s`
-           data_iniIns=`date +%s.%3N`
+           data_iniIns=`date +%s`
       	   echo "setup ETCD$i"
 	   #echo " Port 1[$port1] Port2[$port2] Port3[$port3]"
 	  
@@ -69,12 +67,9 @@ case $1 in
 	        #stat=$(curl -L -Ss http://localhost:$port3/v2/stats/self)
                 #echo "STATS*****************************************************"
 
-		data_end=`date +%s.%3N`
-		#data_end=`date +%s`
-		ELAPSED_TIME=$(awk -v v1=$data_end -v v2=$data_ini 'BEGIN {print v1-v2}')
-                ELAPSED_TIME_INS=$(awk -v v1=$data_end -v v2=$data_iniIns 'BEGIN {print v1-v2}')
-                #ELAPSED_TIME=`expr $data_end - $data_ini`
-                #ELAPSED_TIME_INS=`expr $data_end - $data_iniIns`
+		data_end=`date +%s`
+                ELAPSED_TIME=`expr $data_end - $data_ini`
+                ELAPSED_TIME_INS=`expr $data_end - $data_iniIns`
                 #echo "CREAR $i \t $ELAPSED_TIME \t $ELAPSED_TIME_INS"
                 echo -e "$i \t $ELAPSED_TIME \t $ELAPSED_TIME_INS">>$fileName
                 
@@ -98,11 +93,10 @@ case $1 in
 	echo "DATA"
 	curl -L http://localhost:2379/v2/keys/adhoc-cloud
 	
-	data_end=`date +%s.%3N`
-	#ELAPSED_TIME=`expr $data_end - $data_ini`
-	ELAPSED_TIME=$(awk -v v1=$data_end -v v2=$data_ini 'BEGIN {print v1-v2}')
+	data_end=`date +%s`
+	ELAPSED_TIME=`expr $data_end - $data_ini`
 	echo -e "TOTAL$2 \t $ELAPSED_TIME">>$fileName
-	sudo docker stats -a --no-stream >>$fileName	
+		
 	###echo "Before leaving. Sync all data..."
 	###for ((i=0;i<$2;i++))
         ###do
