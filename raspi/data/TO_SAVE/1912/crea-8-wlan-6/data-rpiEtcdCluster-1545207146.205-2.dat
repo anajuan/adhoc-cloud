@@ -1,0 +1,9 @@
+Nodes raspberrypi-new1-wlan,raspberrypi-new2-wlan
+Name 	 Num 	 Acumtime 	 TimeIns
+raspberrypi-new1-wlan 	 0 	 2.858 	 2.082
+raspberrypi-new2-wlan 	 1 	 4.487 	 1.549
+Total Cluster Creation Time [4.649]
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+55caca3c5c95        etcd0               2.59%               3.355MiB / 32MiB    10.49%              0B / 0B             0B / 61.4kB         0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+95c9e038bbed        etcd1               3.52%               3.676MiB / 32MiB    11.49%              0B / 0B             0B / 69.6kB         0
