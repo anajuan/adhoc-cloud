@@ -1,0 +1,27 @@
+Nodes raspberrypi-new1-eth0,raspberrypi-new2-eth0,raspberrypi-new3-eth0,raspberrypi-new4-eth0,raspberrypi-new5-eth0,raspberrypi-jgn1-eth0,raspberrypi-jgn2-eth0,raspberrypi-old2-eth0
+Name 	 Num 	 Acumtime 	 TimeIns
+raspberrypi-new1-eth0 	 0 	 5.192 	 1.946
+raspberrypi-new2-eth0 	 1 	 7.226 	 1.792
+raspberrypi-new3-eth0 	 2 	 9.49 	 2.051
+raspberrypi-new4-eth0 	 3 	 11.408 	 1.662
+raspberrypi-new5-eth0 	 4 	 13.401 	 1.748
+raspberrypi-jgn1-eth0 	 5 	 15.036 	 1.379
+raspberrypi-jgn2-eth0 	 6 	 17.571 	 2.175
+raspberrypi-old2-eth0 	 7 	 19.856 	 1.715
+Total Cluster Creation Time [20.526]
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+6fb7be2f9ee2        etcd0               4.80%               9.297MiB / 32MiB    29.05%              0B / 0B             0B / 184kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+9d865a22b26c        etcd1               4.20%               8.668MiB / 32MiB    27.09%              0B / 0B             0B / 197kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+c0c1d0c7fdc5        etcd2               12.00%              9.418MiB / 32MiB    29.43%              0B / 0B             0B / 209kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+1a127ae64a1c        etcd3               3.94%               7.91MiB / 32MiB     24.72%              0B / 0B             279kB / 242kB       0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+74bdeb5330bd        etcd4               3.24%               7.516MiB / 32MiB    23.49%              0B / 0B             0B / 242kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+67c3841e8258        etcd5               3.48%               7.414MiB / 32MiB    23.17%              0B / 0B             0B / 242kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+fd6d47f8d557        etcd6               3.67%               6.992MiB / 32MiB    21.85%              0B / 0B             0B / 238kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+048f1962ce7e        etcd7               4.95%               6.758MiB / 32MiB    21.12%              0B / 0B             0B / 242kB          0

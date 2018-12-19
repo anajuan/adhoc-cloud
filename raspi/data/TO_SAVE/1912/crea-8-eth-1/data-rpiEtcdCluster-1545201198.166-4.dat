@@ -1,0 +1,15 @@
+Nodes raspberrypi-new1-eth0,raspberrypi-new2-eth0,raspberrypi-new3-eth0,raspberrypi-new4-eth0
+Name 	 Num 	 Acumtime 	 TimeIns
+raspberrypi-new1-eth0 	 0 	 3.656 	 2.019
+raspberrypi-new2-eth0 	 1 	 5.554 	 1.776
+raspberrypi-new3-eth0 	 2 	 8.562 	 2.855
+raspberrypi-new4-eth0 	 3 	 16.133 	 2.385
+Total Cluster Creation Time [21.354]
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+d0d7a7e1c403        etcd0               4.44%               5.535MiB / 32MiB    17.30%              0B / 0B             0B / 193kB          0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+d844633beab7        etcd1               5.67%               6.559MiB / 32MiB    20.50%              0B / 0B             102kB / 213kB       0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+06e6f883e60f        etcd2               4.50%               4.785MiB / 32MiB    14.95%              0B / 0B             13.1MB / 213kB      0
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+42f0b40bdba4        etcd3               4.04%               4.852MiB / 32MiB    15.16%              0B / 0B             12.8MB / 168kB      0
