@@ -23,7 +23,6 @@ case $1 in
 	#	IP=`ip -4 route get 8.8.8.8 | awk {'print $7'} | tr -d '\n'`
 	#	nom="etcd"
 	#	initialCluster="$nom=http://$IP:2380"
-        whereis docker	
 	docker run --env GOMAXPROCS=4 \
 		-e ETCD_UNSUPPORTED_ARCH=arm \
 		-m $memLimit \
@@ -70,18 +69,20 @@ case $1 in
     			initialClusterStr="$initialClusterStr,"
 		fi
     		initialClusterStr="$initialClusterStr$nom"
+	        echo "Node-$node Key-$num Nom-$nom Init-$initialClusterStr"	
 	done
-	
+        echo "INITIAL CLUSTER PARAM[$initialClusterStr]"
+
         ### Step 2: Instatiate etcd container in each rpi hosts 	
 	for key in "${!ary[@]}"; do 
                 data_iniIns=`date +%s.%3N`
 		node=${ary[$key]}
 		num=$key
 		IP_Node=${IPs[num]}
+		echo "*********************************** TRACTA NODE NODE[$node]IP[$IP_Node] *****************************************"
 		nom="etcd$num"
 		value="$node#$IP_Node"
-
-                echo "ssh ubuntu@$node "export PATH=$PATH:/snap/bin/docker;/home/ubuntu/adhoc-cloud/aws-a1/adhoc-cloud-etcd-awsa1.sh member $IP_Node $nom $initialClusterStr""
+		echo "$IP_Node Nom $nom val ini $initialClusterStr "
                 ssh ubuntu@$node "export PATH=$PATH:/snap/bin/docker;/home/ubuntu/adhoc-cloud/aws-a1/adhoc-cloud-etcd-awsa1.sh member $IP_Node $nom $initialClusterStr" 
 		#data_end=`date +%s`
 		data_end=`date +%s.%3N`
@@ -108,6 +109,9 @@ case $1 in
 
 		nodeStats=$(curl -sS http://$IP_Node:2379/v2/stats/self)
 		echo "cluster_create) Node Stats $nodeStats"
+		echo "*************************************************************************************************************************************"
+		echo "*************************************************************************************************************************************"
+		echo "*************************************************************************************************************************************"
 	done
 	data_end=`date +%s.%3N`
         #ELAPSED_TIME=`expr $data_end - $data_ini`
@@ -122,7 +126,7 @@ case $1 in
 		nom="etcd$num"
 		value="$node#$IP_Node"
 	        insertValue=$(curl -sS http://$IP_Node:2379/v2/keys/adhoc-cloud/$nom -XPUT -d value="$value")
-	        echo "cluster_create) IntertValue $insertValue"
+	        echo "--------------------------------------------------------------------------------cluster_create) IntertValue $insertValue"
         done
 	### Step 4: check cluster health, members and inserted keys.
 	firstNode=${ary[0]}
