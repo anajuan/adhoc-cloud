@@ -69,7 +69,7 @@ case $1 in
     			initialClusterStr="$initialClusterStr,"
 		fi
     		initialClusterStr="$initialClusterStr$nom"
-	        echo "Node-$node Key-$num Nom-$nom Init-$initialClusterStr"	
+	        ####echo "Node-$node Key-$num Nom-$nom Init-$initialClusterStr"	
 	done
         echo "INITIAL CLUSTER PARAM[$initialClusterStr]"
 
@@ -109,8 +109,6 @@ case $1 in
 
 		nodeStats=$(curl -sS http://$IP_Node:2379/v2/stats/self)
 		echo "cluster_create) Node Stats $nodeStats"
-		echo "*************************************************************************************************************************************"
-		echo "*************************************************************************************************************************************"
 		echo "*************************************************************************************************************************************"
 	done
 	data_end=`date +%s.%3N`

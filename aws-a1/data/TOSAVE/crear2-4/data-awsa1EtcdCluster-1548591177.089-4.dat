@@ -1,0 +1,15 @@
+Nodes 172.31.23.222,172.31.24.29,172.31.28.183,172.31.29.52
+Name 	 Num 	 Acumtime 	 TimeIns
+172.31.23.222 	 0 	 6.675 	 1.74
+172.31.24.29 	 1 	 8.522 	 1.758
+172.31.28.183 	 2 	 10.338 	 1.751
+172.31.29.52 	 3 	 12.148 	 1.727
+Total Cluster Creation Time [12.238]
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+fd83e633fe65        etcd0               1.17%               4.211MiB / 32MiB    13.16%              0B / 0B             0B / 102kB          10
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+e6f1c8a2b026        etcd1               4.56%               4.961MiB / 32MiB    15.50%              0B / 0B             77.8kB / 135kB      11
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+0bf1b5637dbe        etcd2               0.80%               4.297MiB / 32MiB    13.43%              0B / 0B             0B / 156kB          10
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT   MEM %               NET I/O             BLOCK I/O           PIDS
+3a8573687092        etcd3               0.72%               4.176MiB / 32MiB    13.05%              0B / 0B             0B / 156kB          10
