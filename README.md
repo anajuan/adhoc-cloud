@@ -1,4 +1,4 @@
-# adhoc-cloud
+# adhoc-edge-cloud
 
 
 # create image
